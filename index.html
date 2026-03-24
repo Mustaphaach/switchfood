@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Switch Food — Kénitra</title>
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/hPQVSrgN/unnamed-removebg-preview.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- PRÉCHARGEUR -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <img src="https://i.postimg.cc/hPQVSrgN/unnamed-removebg-preview.png" alt="Switch Food" />
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloaderBar"></div>
+      </div>
+      <p class="preloader-text" id="preloaderText">Chargement...</p>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <img src="https://i.postimg.cc/hPQVSrgN/unnamed-removebg-preview.png" alt="Switch Food Logo" class="logo-img" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">À Propos</a></li>
+      <li><a href="#reviews">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#menu" class="nav-cta">Commander 🔥</a>
+    <div class="burger" id="burger">&#9776;</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-text">SWITCH</div>
+    <div class="hero-content">
+      <p class="hero-sub">🌟 Livraison Partout à Kénitra</p>
+      <h1 class="hero-title">Une Cuisine Qui<br/><span>Déchire.</span></h1>
+      <p class="hero-desc">Burgers, Wraps, Paninis, Pizzas, Tacos et bien plus — livrés chauds directement chez vous à Kénitra.</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn-primary">Voir le Menu</a>
+        <a href="#about" class="btn-outline">Notre Histoire</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span>10+</span><p>Catégories</p></div>
+        <div class="stat"><span>50+</span><p>Plats</p></div>
+        <div class="stat"><span>4.9★</span><p>Note</p></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-main-img">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=90" alt="Burger Principal" />
+        <div class="hero-img-glow"></div>
+      </div>
+
+      <div class="hero-food-card hfc1" onclick="showFoodPopup('tacos')">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&q=80" alt="Tacos" />
+        <span>🌮 Tacos</span>
+      </div>
+      <div class="hero-food-card hfc2" onclick="showFoodPopup('pizza')">
+        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=200&q=80" alt="Pizza" />
+        <span>🍕 Pizza</span>
+      </div>
+      <div class="hero-food-card hfc3" onclick="showFoodPopup('wrap')">
+        <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=200&q=80" alt="Wrap" />
+        <span>🌯 Wrap</span>
+      </div>
+      <div class="hero-food-card hfc4" onclick="showFoodPopup('nuggets')">
+        <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=200&q=80" alt="Nuggets" />
+        <span>🍗 Nuggets</span>
+      </div>
+
+      <div class="hero-badge-rating">
+        <span class="badge-stars">★★★★★</span>
+        <span class="badge-text">4.9 — 200+ Avis</span>
+      </div>
+      <div class="hero-badge-delivery">
+        <span>🛵</span>
+        <div>
+          <strong>Livraison Rapide</strong>
+          <p>30–45 min</p>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↓ Défiler pour Explorer</div>
+  </section>
+
+  <!-- SECTION MENU -->
+  <section class="menu-section" id="menu">
+    <div class="section-header">
+      <p class="section-sub">— Nos Catégories —</p>
+      <h2 class="section-title">Qu'est-ce qui vous <span>fait envie?</span></h2>
+    </div>
+    <div class="category-tabs" id="categoryTabs">
+      <button class="cat-tab active" data-cat="burger">🍔 Burger</button>
+      <button class="cat-tab" data-cat="wrap">🌯 Wraps</button>
+      <button class="cat-tab" data-cat="panini">🥪 Panini</button>
+      <button class="cat-tab" data-cat="tacos">🌮 Tacos</button>
+      <button class="cat-tab" data-cat="pizza">🍕 Pizza</button>
+      <button class="cat-tab" data-cat="sandwich">🥖 Sandwich</button>
+      <button class="cat-tab" data-cat="pasticco">🍲 Pasticco</button>
+      <button class="cat-tab" data-cat="texmix">🍟 Tex Mix</button>
+      <button class="cat-tab" data-cat="salade">🥗 Salade</button>
+      <button class="cat-tab" data-cat="boissons">🥤 Boissons</button>
+    </div>
+    <div class="slider-wrapper">
+      <button class="slider-btn" id="prevBtn">&#8592;</button>
+      <div class="slider-track-outer">
+        <div class="slider-track" id="sliderTrack"></div>
+      </div>
+      <button class="slider-btn" id="nextBtn">&#8594;</button>
+    </div>
+    <div class="slider-dots" id="sliderDots"></div>
+  </section>
+
+  <!-- MODAL DÉTAIL PLAT -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="modal">
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+  <!-- SECTION OFFRES SPÉCIALES -->
+<section class="offers-section" id="offers">
+  <div class="section-header">
+    <p class="section-sub">— Offres Limitées —</p>
+    <h2 class="section-title">Deals <span>Imbattables 🔥</span></h2>
+  </div>
+  <div class="offers-grid">
+
+    <div class="offer-card">
+      <div class="offer-emoji">🍔🍟🥤</div>
+      <div class="offer-badge">⚡ Deal</div>
+      <h3>Burger Combo</h3>
+      <p>Burger + Frites + Boisson</p>
+      <div class="offer-prices">
+        <span class="offer-old">65 Dh</span>
+        <span class="offer-new">50 Dh</span>
+      </div>
+      <a href="#menu" class="btn-primary" style="width:100%;text-align:center;display:block;margin-top:1rem;text-decoration:none">
+        Commander 🛒
+      </a>
+    </div>
+
+    <div class="offer-card offer-featured">
+      <div class="offer-emoji">🌮🌮🥤</div>
+      <div class="offer-badge offer-badge-hot">🔥 Best Seller</div>
+      <h3>Double Tacos</h3>
+      <p>2 Tacos au choix + Boisson</p>
+      <div class="offer-prices">
+        <span class="offer-old">85 Dh</span>
+        <span class="offer-new">65 Dh</span>
+      </div>
+      <a href="#menu" class="btn-primary" style="width:100%;text-align:center;display:block;margin-top:1rem;text-decoration:none">
+        Commander 🛒
+      </a>
+    </div>
+
+    <div class="offer-card">
+      <div class="offer-emoji">🍕🥗🥤</div>
+      <div class="offer-badge">✨ Spécial</div>
+      <h3>Pizza + Salade</h3>
+      <p>Pizza Poulet + Salade César</p>
+      <div class="offer-prices">
+        <span class="offer-old">70 Dh</span>
+        <span class="offer-new">55 Dh</span>
+      </div>
+      <a href="#menu" class="btn-primary" style="width:100%;text-align:center;display:block;margin-top:1rem;text-decoration:none">
+        Commander 🛒
+      </a>
+    </div>
+
+  </div>
+</section>
+
+  <!-- SECTION À PROPOS -->
+  <section class="about-section" id="about">
+    <div class="about-left">
+      <div class="about-emoji-stack">
+        <div class="ae ae1"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&q=80" alt="Burger" /></div>
+        <div class="ae ae2"><img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=300&q=80" alt="Tacos" /></div>
+        <div class="ae ae3"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&q=80" alt="Pizza" /></div>
+        <div class="ae ae4"><img src="https://images.unsplash.com/photo-1512852939750-1305098529bf?w=300&q=80" alt="Salade" /></div>
+      </div>
+    </div>
+    <div class="about-right">
+      <p class="section-sub">— Qui Sommes-Nous —</p>
+      <h2>On Cuisine avec <span>Passion.</span></h2>
+      <p>Switch Food est né d'une idée simple : la vraie nourriture doit avoir un goût extraordinaire. Chaque plat de notre menu est préparé avec des ingrédients frais et des saveurs audacieuses.</p>
+      <p>Pas de compromis. Pas de remplissage. Juste une délicieuse authenticité servie rapidement et faite avec amour — livraison partout à Kénitra.</p>
+      <div class="about-tags">
+        <span>🥩 Ingrédients Frais</span>
+        <span>🚀 Livraison Rapide</span>
+        <span>💚 Fait Maison</span>
+        <span>👨‍🍳 Chef Passionné</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDEAU DÉFILANT -->
+  <div class="marquee-strip">
+    <div class="marquee-layer marquee-top">
+      <div class="marquee-inner">
+        <span class="mq-item"><span class="mq-dot"></span>Burgers Frais</span>
+        <span class="mq-item"><span class="mq-star">★</span>Livraison 30min</span>
+        <span class="mq-item"><span class="mq-dot"></span>Tacos XXL</span>
+        <span class="mq-item"><span class="mq-star">★</span>Pizza Artisanale</span>
+        <span class="mq-item"><span class="mq-dot"></span>Wraps Croustillants</span>
+        <span class="mq-item"><span class="mq-star">★</span>Ingrédients Frais</span>
+        <span class="mq-item"><span class="mq-dot"></span>Panini Grillés</span>
+        <span class="mq-item"><span class="mq-star">★</span>Fait Maison</span>
+        <span class="mq-item"><span class="mq-dot"></span>Nuggets Croustillants</span>
+        <span class="mq-item"><span class="mq-star">★</span>Kénitra Seulement 📍</span>
+        <span class="mq-item"><span class="mq-dot"></span>Burgers Frais</span>
+        <span class="mq-item"><span class="mq-star">★</span>Livraison 30min</span>
+        <span class="mq-item"><span class="mq-dot"></span>Tacos XXL</span>
+        <span class="mq-item"><span class="mq-star">★</span>Pizza Artisanale</span>
+        <span class="mq-item"><span class="mq-dot"></span>Wraps Croustillants</span>
+        <span class="mq-item"><span class="mq-star">★</span>Ingrédients Frais</span>
+        <span class="mq-item"><span class="mq-dot"></span>Panini Grillés</span>
+        <span class="mq-item"><span class="mq-star">★</span>Fait Maison</span>
+        <span class="mq-item"><span class="mq-dot"></span>Nuggets Croustillants</span>
+        <span class="mq-item"><span class="mq-star">★</span>Kénitra Seulement 📍</span>
+      </div>
+    </div>
+    <div class="marquee-layer marquee-bottom">
+      <div class="marquee-inner marquee-reverse">
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Switch Food</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Note 4.9 ★</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>50+ Plats</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Commande en Ligne</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>12h — 1h du Matin</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Tex Mix à 10Dh</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Pasticco Maison</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Double Cheese 🔥</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Switch Food</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Note 4.9 ★</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>50+ Plats</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Commande en Ligne</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>12h — 1h du Matin</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Tex Mix à 10Dh</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Pasticco Maison</span>
+        <span class="mq-item mq-dark"><span class="mq-star-dark">✦</span>Double Cheese 🔥</span>
+      </div>
+    </div>
+  </div>
+  <!-- SECTION GALERIE -->
+<section class="gallery-section" id="gallery">
+  <div class="section-header">
+    <p class="section-sub">— Nos Photos —</p>
+    <h2 class="section-title">Fait avec <span>Amour. 📸</span></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item gi-large">
+      <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=90" alt="Burger" />
+      <div class="gallery-overlay"><span>🍔 Burgers</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=90" alt="Tacos" />
+      <div class="gallery-overlay"><span>🌮 Tacos</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&q=90" alt="Pizza" />
+      <div class="gallery-overlay"><span>🍕 Pizza</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=90" alt="Wrap" />
+      <div class="gallery-overlay"><span>🌯 Wraps</span></div>
+    </div>
+    <div class="gallery-item gi-wide">
+      <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=90" alt="Pasticco" />
+      <div class="gallery-overlay"><span>🍲 Pasticco</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=90" alt="Nuggets" />
+      <div class="gallery-overlay"><span>🍗 Nuggets</span></div>
+    </div>
+  </div>
+</section>
+
+  <!-- SECTION AVIS CLIENTS -->
+  <section class="reviews-section" id="reviews">
+    <div class="section-header">
+      <p class="section-sub">— Ce Qu'ils Disent —</p>
+      <h2 class="section-title">Avis de Nos <span>Clients 💬</span></h2>
+    </div>
+    <div class="reviews-track-wrap">
+      <div class="reviews-track">
+
+        <!-- CARD 1 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">S</div>
+            <div><h4>Sara M.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"Le meilleur burger de Kénitra! La viande est fraîche, le pain brioché parfait. Livraison rapide en 30 min. Je recommande le Double Cheese 🔥"</p>
+          <span class="review-date">Il y a 2 jours</span>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#e91e63">Y</div>
+            <div><h4>Youssef K.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"Les tacos sont incroyables! Grande portion, fromage fondant et sauce maison délicieuse. Prix très raisonnable. Je commande 3 fois par semaine 😄"</p>
+          <span class="review-date">Il y a 5 jours</span>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#4caf50">F</div>
+            <div><h4>Fatima Z.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"La pizza 4 fromages est une merveille! Pâte croustillante et fromage coulant. La livraison était ponctuelle et l'emballage soigné. Bravo Switch Food! 🍕"</p>
+          <span class="review-date">Il y a 1 semaine</span>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#9c27b0">A</div>
+            <div><h4>Adam B.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"Le wrap crispy est mon préféré! Poulet croustillant, légumes frais et sauce maison. Rapport qualité-prix excellent. La meilleure adresse à Kénitra! 🌯"</p>
+          <span class="review-date">Il y a 2 semaines</span>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#ff9800">N</div>
+            <div><h4>Nadia R.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"Pasticco maison absolument délicieux! Béchamel onctueuse et garniture généreuse. On sent que c'est fait avec amour. Merci Switch Food! ❤️"</p>
+          <span class="review-date">Il y a 3 semaines</span>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#00bcd4">H</div>
+            <div><h4>Hamza O.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"Commande livrée en moins de 35 minutes, encore chaude! Les nuggets et frites étaient croustillants. Service client très sympa. 5 étoiles mérités! ⭐"</p>
+          <span class="review-date">Il y a 1 mois</span>
+        </div>
+
+        <!-- DUPLICATE FOR SEAMLESS LOOP -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">S</div>
+            <div><h4>Sara M.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"Le meilleur burger de Kénitra! La viande est fraîche, le pain brioché parfait. Livraison rapide en 30 min. Je recommande le Double Cheese 🔥"</p>
+          <span class="review-date">Il y a 2 jours</span>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#e91e63">Y</div>
+            <div><h4>Youssef K.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"Les tacos sont incroyables! Grande portion, fromage fondant et sauce maison délicieuse. Prix très raisonnable. Je commande 3 fois par semaine 😄"</p>
+          <span class="review-date">Il y a 5 jours</span>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#4caf50">F</div>
+            <div><h4>Fatima Z.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"La pizza 4 fromages est une merveille! Pâte croustillante et fromage coulant. La livraison était ponctuelle et l'emballage soigné. Bravo Switch Food! 🍕"</p>
+          <span class="review-date">Il y a 1 semaine</span>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#9c27b0">A</div>
+            <div><h4>Adam B.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"Le wrap crispy est mon préféré! Poulet croustillant, légumes frais et sauce maison. Rapport qualité-prix excellent. La meilleure adresse à Kénitra! 🌯"</p>
+          <span class="review-date">Il y a 2 semaines</span>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#ff9800">N</div>
+            <div><h4>Nadia R.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"Pasticco maison absolument délicieux! Béchamel onctueuse et garniture généreuse. On sent que c'est fait avec amour. Merci Switch Food! ❤️"</p>
+          <span class="review-date">Il y a 3 semaines</span>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#00bcd4">H</div>
+            <div><h4>Hamza O.</h4><div class="review-stars">★★★★★</div></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" class="review-google-logo" alt="Google" />
+          </div>
+          <p>"Commande livrée en moins de 35 minutes, encore chaude! Les nuggets et frites étaient croustillants. Service client très sympa. 5 étoiles mérités! ⭐"</p>
+          <span class="review-date">Il y a 1 mois</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BOUTON GOOGLE MAPS -->
+    <div class="reviews-cta">
+      <a href="https://maps.google.com/?q=Switch+Food+Kenitra" target="_blank" class="reviews-google-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" alt="Google" />
+        Voir tous les avis sur Google Maps
+      </a>
+    </div>
+  </section>
+  <!-- SECTION FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-header">
+    <p class="section-sub">— Questions Fréquentes —</p>
+    <h2 class="section-title">Vous avez des <span>Questions? 💬</span></h2>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span>🛵 Quel est le délai de livraison?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Nous livrons en <strong>30 à 45 minutes</strong> en moyenne. Les délais peuvent varier selon votre quartier et l'affluence.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span>📍 Quelle est votre zone de livraison?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Nous livrons <strong>partout à Kénitra</strong>. Si vous avez un doute, contactez-nous sur WhatsApp et on confirme!</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span>💵 Quel mode de paiement acceptez-vous?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Nous acceptons uniquement le <strong>paiement à la livraison en espèces</strong> pour le moment.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span>🕐 Quels sont vos horaires?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Nous sommes ouverts <strong>tous les jours de 12h à 1h du matin</strong> — y compris les weekends et jours fériés.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-question">
+        <span>📦 Y a-t-il un minimum de commande?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Non, <strong>aucun minimum de commande</strong>. Commandez ce que vous voulez, quand vous voulez!</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- SECTION CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-header">
+      <p class="section-sub">— Passez Commande —</p>
+      <h2 class="section-title">Commander <span>Maintenant</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-cta-box">
+        <div class="cta-box-icon">🛒</div>
+        <h3>Prêt à Commander?</h3>
+        <p>Explorez notre menu et ajoutez vos plats au panier en quelques clics.</p>
+        <a href="#menu" class="btn-primary" style="display:inline-block;margin-top:1rem;text-decoration:none">
+          Voir le Menu & Commander 🔥
+        </a>
+        <p class="cta-or">— ou —</p>
+        <a href="https://wa.me/212601481661" target="_blank" class="btn-outline" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none">
+          <i class="fab fa-whatsapp" style="color:#25D366"></i> Commander via WhatsApp
+        </a>
+      </div>
+      <div class="contact-info">
+        <div class="info-card">
+          <span>📍</span>
+          <div><h4>Nous Trouver</h4><p>38 Av. Hassan II, Kénitra</p></div>
+        </div>
+        <div class="info-card">
+          <span>📞</span>
+          <div><h4>Appelez-Nous</h4><p>0601481661</p></div>
+        </div>
+        <div class="info-card">
+          <span>🛵</span>
+          <div><h4>Livraison</h4><p>Partout à Kénitra</p></div>
+        </div>
+        <div class="info-card">
+          <span>🕐</span>
+          <div><h4>Horaires</h4><p>Tous les jours: 12h – 1h</p></div>
+        </div>
+        <div class="social-row">
+          <a href="https://facebook.com" target="_blank" class="social-icon social-fb" title="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" class="social-icon social-ig" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/212601481661" target="_blank" class="social-icon social-wa" title="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.524 5.847L.057 23.5l5.797-1.522A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.655-.502-5.188-1.378l-.372-.22-3.44.904.92-3.356-.242-.386A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIED DE PAGE -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="https://i.postimg.cc/hPQVSrgN/unnamed-removebg-preview.png" alt="Switch Food Logo" class="logo-img footer-logo-img" />
+    </div>
+    <p>© 2026 SwitchFood. Tous droits réservés. Fait avec ❤️ & 🔥 — Kénitra</p>
+  </footer>
+
+  <!-- NOTIFICATION -->
+  <div class="toast" id="toast"></div>
+
+  <!-- BOUTON PANIER (flottant) -->
+  <button class="cart-fab" id="cartFab" onclick="openCart()">
+    🛒 <span class="cart-count" id="cartCount">0</span>
+  </button>
+
+  <!-- PANIER LATÉRAL -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCartOverlay(event)">
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h3>🛒 Mon Panier</h3>
+        <button class="cart-close" onclick="closeCart()">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty" id="cartEmpty">
+          <span>🍽️</span>
+          <p>Votre panier est vide</p>
+        </div>
+      </div>
+      <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span class="total-price" id="totalPrice">0 Dh</span>
+        </div>
+        <button class="btn-primary" style="width:100%" onclick="openOrderForm()">
+          📋 Passer la Commande
+        </button>
+        <button class="clear-cart-btn" onclick="clearCart()">🗑️ Vider le Panier</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULAIRE DE COMMANDE -->
+  <div class="order-form-overlay" id="orderFormOverlay" onclick="closeOrderFormOverlay(event)">
+    <div class="order-form-modal" id="orderFormModal">
+      <button class="modal-close" onclick="closeOrderForm()">✕</button>
+      <div class="order-form-content">
+
+        <!-- ÉTAPE 1 -->
+        <div class="form-step" id="step1">
+          <div class="form-step-header">
+            <div class="step-icon">👤</div>
+            <h2>Vos Informations</h2>
+            <p>Remplissez vos coordonnées pour confirmer</p>
+          </div>
+          <div class="order-summary-mini" id="orderSummaryMini"></div>
+          <form id="orderInfoForm" onsubmit="goToStep2(event)">
+            <div class="form-group">
+              <label>👤 Nom Complet *</label>
+              <input type="text" id="fullName" placeholder="Ex: Ahmed Benali" required />
+            </div>
+            <div class="form-group">
+              <label>📞 Numéro de Téléphone *</label>
+              <input type="tel" id="phoneNumber" placeholder="Ex: 06 12 34 56 78" required />
+            </div>
+            <div class="form-group">
+              <label>📍 Adresse de Livraison *</label>
+              <input type="text" id="address" placeholder="Ex: Rue Hassan II, Kénitra" required />
+            </div>
+            <div class="form-group">
+              <label>🏘️ Quartier / Repère</label>
+              <input type="text" id="landmark" placeholder="Ex: Près de la mosquée, 2ème étage..." />
+            </div>
+            <div class="form-group">
+              <label>📝 Instructions Spéciales</label>
+              <textarea id="instructions" placeholder="Ex: Sans oignon, extra sauce, bien cuit..." rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;margin-top:0.5rem">
+              Continuer → Confirmer
+            </button>
+          </form>
+        </div>
+
+        <!-- ÉTAPE 2 -->
+        <div class="form-step" id="step2" style="display:none">
+          <div class="form-step-header">
+            <div class="step-icon">✅</div>
+            <h2>Confirmer la Commande</h2>
+            <p>Vérifiez tout avant d'envoyer</p>
+          </div>
+          <div class="confirm-section">
+            <h4>🛒 Votre Commande</h4>
+            <div id="confirmItems"></div>
+            <div class="confirm-total" id="confirmTotal"></div>
+          </div>
+          <div class="confirm-section">
+            <h4>👤 Vos Informations</h4>
+            <div class="confirm-info" id="confirmInfo"></div>
+          </div>
+          <div class="confirm-actions">
+            <button class="btn-outline" onclick="goBackToStep1()" style="flex:1">← Modifier</button>
+            <button class="btn-primary" onclick="submitFinalOrder()" style="flex:2">
+              🚀 Envoyer la Commande
+            </button>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 3 -->
+        <div class="form-step" id="step3" style="display:none">
+          <div class="success-screen">
+            <div class="success-icon">🎉</div>
+            <h2>Commande Envoyée!</h2>
+            <p>Merci <strong id="successName"></strong>! Votre commande a bien été reçue.</p>
+            <p class="success-sub">Nous allons vous appeler au <strong id="successPhone"></strong> pour confirmer.</p>
+            <div class="success-eta">
+              <span>⏱️</span>
+              <p>Livraison estimée: <strong>30–45 min</strong></p>
+            </div>
+            <button class="btn-primary" style="width:100%;margin-top:2rem" onclick="closeOrderForm();clearCart()">
+              Parfait, Merci! 🙌
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP HERO -->
+  <div class="food-popup-overlay" id="foodPopupOverlay" onclick="closeFoodPopup()">
+    <div class="food-popup" id="foodPopup" onclick="event.stopPropagation()">
+      <button class="food-popup-close" onclick="closeFoodPopup()">✕</button>
+      <div class="food-popup-img-wrap">
+        <img id="foodPopupImg" src="" alt="" />
+        <div class="food-popup-emoji" id="foodPopupEmoji"></div>
+      </div>
+      <div class="food-popup-body">
+        <h3 id="foodPopupTitle"></h3>
+        <p class="food-popup-tagline" id="foodPopupTagline"></p>
+        <div class="food-popup-facts" id="foodPopupFacts"></div>
+        <a href="#menu" class="btn-primary" onclick="closeFoodPopup()" style="width:100%;text-align:center;margin-top:1rem;display:block">
+          Voir le Menu 🔥
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
